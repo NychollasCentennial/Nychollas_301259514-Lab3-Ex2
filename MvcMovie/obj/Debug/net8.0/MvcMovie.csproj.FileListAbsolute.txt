@@ -273,3 +273,4 @@
 /Users/nychollas/Documents/lab3/ex2/Nychollas_301259514-Lab3-Ex2/MvcMovie/obj/Debug/net8.0/MvcMovie.pdb
 /Users/nychollas/Documents/lab3/ex2/Nychollas_301259514-Lab3-Ex2/MvcMovie/obj/Debug/net8.0/MvcMovie.genruntimeconfig.cache
 /Users/nychollas/Documents/lab3/ex2/Nychollas_301259514-Lab3-Ex2/MvcMovie/obj/Debug/net8.0/ref/MvcMovie.dll
+/Users/nychollas/Documents/lab3/ex2/Nychollas_301259514-Lab3-Ex2/MvcMovie/obj/Debug/net8.0/MvcMovie.sourcelink.json
