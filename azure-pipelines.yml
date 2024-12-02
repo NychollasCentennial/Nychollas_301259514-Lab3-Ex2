@@ -10,29 +10,35 @@ pool:
   name: Default # Ensure this matches your self-hosted agent's pool name
 
 steps:
+
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '7.x'  # Insira a versão do .NET SDK que você está utilizando
+    version: '7.x'  # Ensure the version is correct (7.x or 8.x based on your project requirements)
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
+# Step to restore NuGet packages, including Microsoft.EntityFrameworkCore.Sqlite
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'  # Caminho para o seu arquivo de projeto
+    projects: '**/*.csproj'  # Path to your project file
+    feedsToUse: 'select'  # This will ensure it restores the correct packages
 
+# Step to build the project
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)'  # Ensure this is defined in the variables section if necessary
 
+# Step to publish the project
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
+# Step to publish build artifacts to the pipeline
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
