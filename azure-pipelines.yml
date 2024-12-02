@@ -7,8 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
+  name: Default # Ensure this matches your self-hosted agent's pool name
 
 steps:
 - task: UseDotNet@2
